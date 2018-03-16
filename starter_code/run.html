@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<!-- load google maps and crime data -->
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=visualization"></script>
+<script src="crime_2012_december.json" ></script>
+
+<!-- load exercise code -->
+<script src="exercise.js"></script>
+
+<!-- html element for map -->
+<div id="map-canvas" style="height:600px;width:800px"></div>
+
+
+<script>
+
+// number of records
+var records = exercise.countRecords(chicago.data);
+console.log(records);
+
+// number of district 018 crimes
+var crimes = exercise.countDistrictCrimes(chicago.data,'018');
+console.log(crimes);
+
+// number of primary type crime 'THEFT'
+var thefts = exercise.countPrimaryType(chicago.data, 'THEFT');
+console.log(thefts);
+
+// number of crimes in 'STREET'
+var locations = exercise.countLocation(chicago.data, 'STREET');
+console.log(locations);
+
+
+var points = [];
+var points = chicago.data.map(exercise.buildLatLngPoint);
+
+</script>
+
+<script src="heatmap.js"></script>
+</html>
